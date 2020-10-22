@@ -1,3 +1,6 @@
 .replit
 target/
 *.md
+Cargo.lock
+.gitignore
+main.s*

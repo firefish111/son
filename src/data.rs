@@ -5,7 +5,7 @@ struct Fun {
 }
 
 impl Fun {
-  fn set_fn(bytes: Vec<u8>, indx: &mut usize) -> Fun {
+  fn set_fn(dat: bytes::Bytes, indx: &mut usize) -> Fun {
     // TODO 
   } 
 }
@@ -19,6 +19,10 @@ enum DataType {
   I16(i16),
   I32(i32),
   I64(i64),
-  BOOL(bool),
-  FUN(Fun)
+  boolean(bool),
+  fun(Fun)
+  F32(f32)
+  F64(f64)
+  chr(char)
+  nil
 }
