@@ -15,7 +15,7 @@ fn main() {
   };
   
   let mut indx: usize = 5usize;
-  assert_eq!(code[..5], [111, 42, 83, 111, 78]); // o*SoN
+  assert_eq!(code[..5], b"o*SoN"[..]); // magic number for SoN
   let fun = Fun::new(&code, &mut indx);
   fun.exec(&&code);
 }

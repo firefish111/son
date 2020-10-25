@@ -1,6 +1,7 @@
 use std::collections::HashMap;
 use super::types::DataType;
 use super::string::get_str;
+use crate::pool;
 
 pub struct Fun {
   start: usize,
@@ -37,6 +38,8 @@ impl Fun {
   }
   pub fn exec(&self, code: &bytes::Bytes) {
     let mut x = self.start + 3;
-    print!("{}", get_str(&code, &mut x));
+    if let DataType::Str(elf) = pool::get_val(get_str(&code, &mut x)) {
+      print!("{}", elf);
+    }
   }
 }
