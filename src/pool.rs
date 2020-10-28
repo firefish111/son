@@ -1,18 +1,23 @@
 use crate::data::types::DataType;
 
-pub static mut POOL: Vec<DataType> = Vec::new();
+static mut POOL: Vec<DataType> = Vec::new();
 
-pub fn get_val(indx: Option<usize>) -> DataType {
+pub fn get_val<'a>(indx: usize) -> &'a DataType {
   unsafe {
-    POOL[indx.unwrap()].clone()
+    &POOL[indx]
   }
 }
 
-pub fn get_index(val: DataType) -> Option<usize> {
+pub fn add_val(val: DataType) -> usize {
   unsafe {
+    /*
     if !POOL.contains(&val) {
-      POOL.push(val.clone());
+      POOL.push(val);
+      POOL.len() - 1
     }
-    POOL.iter().position(|itm| itm == &val)
+    POOL.iter().position(|itm| itm == &val).unwrap()
+    */
+    POOL.push(val);
+    POOL.len() - 1
   }
 }

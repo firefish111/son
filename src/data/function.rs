@@ -3,6 +3,7 @@ use super::types::DataType;
 use super::string::get_str;
 use crate::pool;
 
+#[allow(dead_code)] // will fix SoonTM
 pub struct Fun {
   start: usize,
   length: usize,
@@ -30,7 +31,7 @@ impl Fun {
       );
     }*/
     let mut length = 0;
-    while &dat[*indx..=*indx+1] != &[0x3bu8, 0x3bu8] {
+    while &dat[*indx..=*indx+1] != &(b";;"[..]) {
       *indx += 1;
       length += 1;
     }
