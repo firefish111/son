@@ -37,7 +37,7 @@ impl DataType {
       0xDB => DataType::Boolean(false),
       0xDC => DataType::Chr('\0'),
       0xDD => DataType::Str(String::new()),
-      _ => panic!("Invalid type: 0x{:x}", *val)
+      _ => panic!("Invalid type: {:#x}", *val)
     }
   }
 }

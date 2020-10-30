@@ -7,6 +7,6 @@ pub fn get_str(dat: &bytes::Bytes, indx: &mut usize) -> usize {
     println!("Warning: string at index {} is not null-terminated, instead it is terminated with {}", indx, dat[end]);
   }
   let out = String::from(std::str::from_utf8(&dat[*indx+1..end]).unwrap());
-  *indx = end;
+  *indx = end + 1; 
   return add_val(DataType::Str(out));
 }
