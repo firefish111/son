@@ -1,3 +1,3 @@
-fun fish() -> nil {
-  "some thirty-four character string\n";
+fun fish(oy of u8) -> str {
+  ret "some thirty-four character string\n";
 }

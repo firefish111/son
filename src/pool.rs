@@ -3,9 +3,7 @@ use crate::data::types::DataType;
 static mut POOL: Vec<DataType> = Vec::new();
 
 pub fn get_val<'a>(indx: usize) -> &'a DataType {
-  unsafe {
-    &POOL[indx]
-  }
+  unsafe { &POOL[indx] }
 }
 
 pub fn add_val(val: DataType) -> usize {

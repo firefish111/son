@@ -1,22 +1,22 @@
 use std::cmp::PartialEq;
 
-#[derive(PartialEq, Clone)]
+#[derive(PartialEq, Clone, Debug)]
 pub enum DataType {
-  Nil, // xD0
-  I8(i8), // xD1
-  I16(i16), // xD2
-  I32(i32), // xD3
-  I64(i64), // xD4
-  U8(u8), // xD5
-  U16(u16), // xD6
-  U32(u32), // xD7
-  U64(u64), // xD8
-  F32(f32), // xD9
-  F64(f64), // xDA
+  Nil,       // xD0
+  I8(i8),    // xD1
+  I16(i16),    // xD2
+  I32(i32),    // xD3
+  I64(i64),    // xD4
+  U8(u8),    // xD5
+  U16(u16),    // xD6
+  U32(u32),    // xD7
+  U64(u64),    // xD8
+  F32(f32),    // xD9
+  F64(f64),    // xDA
   Boolean(bool), // xDB
-  Chr(char), // xDC
-  Str(String), // xDD
-  // Fun(Fn::Fun), // xDF
+  Chr(char),   // xDC
+  Str(String),   // xDD
+           // Fun(Fn::Fun), // xDF
 }
 
 impl DataType {
@@ -37,7 +37,7 @@ impl DataType {
       0xDB => DataType::Boolean(false),
       0xDC => DataType::Chr('\0'),
       0xDD => DataType::Str(String::new()),
-      _ => panic!("Invalid type: {:#x}", *val)
+      _ => panic!("Invalid type: {:#x}", *val),
     }
   }
 }
