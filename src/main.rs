@@ -12,14 +12,14 @@ fn main() {
 
   let code = match fs::read("main.son") {
     Ok(dat) => Bytes::from(dat),
-    Err(error) => panic!("Fatal Error: {}", error), // The difference between unwrap and hsving Fatal Error infront
+    Err(error) => panic!("Fatal Error: {}", error), // The difference between unwrap and having Fatal Error infront
   };
 
   let mut indx: usize = 5usize;
   assert_eq!(code[..5], b"o*SoN"[..]); // magic number for SoN
-  let fun = Fun::new(&code, &mut indx, &mut callable);
+  let fun = Fun::define(&code, &mut indx, &mut callable);
   if let DataType::Str(elf) = callable[&fun].exec(&&code) {
     print!("{}", elf);
   }
-  println!("DEBUG: {:#x?}", callable[&fun]);
+  println!("Function data: {:#x?}", callable[&fun]);
 }

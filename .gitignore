@@ -1,6 +1,5 @@
 .replit
 target/
-*.md
+ideas/
 Cargo.lock
-.gitignore
-main.s*
+rustfmt.toml

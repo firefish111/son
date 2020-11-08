@@ -11,5 +11,5 @@ pub fn get_str(dat: &bytes::Bytes, indx: &mut usize) -> usize {
   }
   let out = String::from(std::str::from_utf8(&dat[*indx + 1..end]).unwrap());
   *indx = end + 1;
-  return add_val(DataType::Str(out));
+  add_val(DataType::Str(out))
 }

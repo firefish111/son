@@ -13,7 +13,7 @@ pub struct Fun<'q> {
 }
 
 impl Fun<'_> {
-  pub fn new<'a>(dat: &'a bytes::Bytes, mut indx: &mut usize, list: &mut HashMap<String, Fun>) -> String {
+  pub fn define<'a>(dat: &'a bytes::Bytes, mut indx: &mut usize, list: &mut HashMap<String, Fun>) -> String {
     assert_eq!(&dat[*indx], &0xDFu8);
     let mut sig = HashMap::new();
     let ret: DataType = DataType::get_typ(&dat[*indx + 1]);
@@ -40,7 +40,7 @@ impl Fun<'_> {
     let start = *indx;
 
     let mut length = 0;
-    while &dat[*indx..=*indx + 1] != &(b";;"[..]) {
+    while dat[*indx..=*indx + 1] != (b";;"[..]) {
       *indx += 1;
       length += 1;
     }

@@ -1,3 +1,0 @@
-fun fish(oy of u8) -> str {
-  ret "some thirty-four character string\n";
-}
