@@ -9,6 +9,7 @@ use data::{function::Fun, types::DataType};
 
 fn main() {
   let mut callable: HashMap<String, Fun> = HashMap::new();
+  //let mut variable: HashMap<String, DataType> = HashMap::new();
 
   let code = match fs::read("main.son") {
     Ok(dat) => Bytes::from(dat),
@@ -22,4 +23,6 @@ fn main() {
     print!("{}", elf);
   }
   println!("Function data: {:#x?}", callable[&fun]);
+  //let var =
+  //
 }
