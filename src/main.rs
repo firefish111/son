@@ -4,12 +4,12 @@ use bytes::Bytes;
 use std::{collections::HashMap, fs};
 mod data;
 mod pool; // lol dis module broken
-use data::{function::Fun, types::DataType};
+use data::{function::Fun, types::DataType, value::val};
 // sorry for stealing
 
 fn main() {
   let mut callable: HashMap<String, Fun> = HashMap::new();
-  //let mut variable: HashMap<String, DataType> = HashMap::new();
+  let mut variable: HashMap<String, DataType> = HashMap::new();
 
   let code = match fs::read("main.son") {
     Ok(dat) => Bytes::from(dat),
@@ -22,7 +22,8 @@ fn main() {
   if let DataType::Str(elf) = callable[&fun].exec(&&code) {
     print!("{}", elf);
   }
-  println!("Function data: {:#x?}", callable[&fun]);
-  //let var =
+  let var = val(&code, &mut indx, &mut variable);
+  println!("Function data: {:#x?}\nVariable data: {:#x?}", callable[&fun], variable[&var]);
+
   //
 }

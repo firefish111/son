@@ -1,2 +1,2 @@
-# Slice Of Night
-The virtual machine that powers SliceLang and NightLang.
+# SliceVM
+The virtual machine that powers SliceLang.

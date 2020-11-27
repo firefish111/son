@@ -48,6 +48,8 @@ impl Fun<'_> {
       *indx += 1;
       length += 1;
     }
+
+    *indx += 2;
     list.insert(name.clone(), Fun { start, length, sig, ret });
     name
   }

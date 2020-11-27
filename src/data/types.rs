@@ -40,25 +40,24 @@ impl DataType {
       _ => panic!("Invalid type: {:#x}", *val),
     }
   }
-/*
-  pub fn upd<'a>(&self, val: &'a dyn Any) -> &Self {
-    let out = match self {
-      DataType::Nil => &self,
-      DataType::I8(_) => &DataType::I8(*val.downcast_ref::<i8>().unwrap()),
-      DataType::I16(_) => &DataType::I16(*val.downcast_ref::<i16>().unwrap()),
-      DataType::I32(_) => &DataType::I32(*val.downcast_ref::<i32>().unwrap()),
-      DataType::I64(_) => &DataType::I64(*val.downcast_ref::<i64>().unwrap()),
-      DataType::U8(_) => &DataType::U8(*val.downcast_ref::<u8>().unwrap()),
-      DataType::U16(_) => &DataType::U16(*val.downcast_ref::<u16>().unwrap()),
-      DataType::U32(_) => &DataType::U32(*val.downcast_ref::<u32>().unwrap()),
-      DataType::U64(_) => &DataType::U64(*val.downcast_ref::<u64>().unwrap()),
-      DataType::F32(_) => &DataType::F32(*val.downcast_ref::<f32>().unwrap()),
-      DataType::F64(_) => &DataType::F64(*val.downcast_ref::<f64>().unwrap()),
-      DataType::Boolean(_) => &DataType::Boolean(*val.downcast_ref::<bool>().unwrap()),
-      DataType::Chr(_) => &DataType::Chr(*val.downcast_ref::<char>().unwrap()),
-      DataType::Str(_) => &DataType::Str(val.downcast_ref::<String>().unwrap().clone()),
-    };
-    *out
+
+  // Excuse the garbage code
+  pub fn upd<'a>(&self, val: &'a dyn Any) -> Self {
+    match self {
+      DataType::Nil => self.clone(),
+      DataType::I8(_) => DataType::I8(*val.downcast_ref::<i8>().unwrap()),
+      DataType::I16(_) => DataType::I16(*val.downcast_ref::<i16>().unwrap()),
+      DataType::I32(_) => DataType::I32(*val.downcast_ref::<i32>().unwrap()),
+      DataType::I64(_) => DataType::I64(*val.downcast_ref::<i64>().unwrap()),
+      DataType::U8(_) => DataType::U8(*val.downcast_ref::<u8>().unwrap()),
+      DataType::U16(_) => DataType::U16(*val.downcast_ref::<u16>().unwrap()),
+      DataType::U32(_) => DataType::U32(*val.downcast_ref::<u32>().unwrap()),
+      DataType::U64(_) => DataType::U64(*val.downcast_ref::<u64>().unwrap()),
+      DataType::F32(_) => DataType::F32(*val.downcast_ref::<f32>().unwrap()),
+      DataType::F64(_) => DataType::F64(*val.downcast_ref::<f64>().unwrap()),
+      DataType::Boolean(_) => DataType::Boolean(*val.downcast_ref::<bool>().unwrap()),
+      DataType::Chr(_) => DataType::Chr(*val.downcast_ref::<char>().unwrap()),
+      DataType::Str(_) => DataType::Str(val.downcast_ref::<String>().unwrap().clone()),
+    }
   }
-*/
 }
